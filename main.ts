@@ -1,24 +1,51 @@
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    msLeft = 5000
-    textSprite.setText(text.stringify(msLeft).substr(0, 1))
+    msLeft = teljesIdo
+    fut = 0
+    textSprite.setText(text.stringify(msLeft))
     sprites.destroy(mySprite)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    while (0 < msLeft) {
+    fut = 1
+    while (0 < msLeft && fut == 1) {
         pause(1000)
-        msLeft = msLeft - 1000
-        textSprite.setText(text.stringify(msLeft).substr(0, 1))
+        if (fut == 1) {
+            msLeft = msLeft - 1
+            textSprite.setText(text.stringify(msLeft))
+        }
     }
-    mySprite = sprites.create(assets.image`misiTuzolto`, SpriteKind.Player)
-    mySprite.setScale(4, ScaleAnchor.Middle)
-    mySprite.setPosition(78, 56)
-    for (let index = 0; index < 2; index++) {
-        music.play(music.melodyPlayable(music.siren), music.PlaybackMode.UntilDone)
+    if (fut == 1) {
+        mySprite = sprites.create(img`
+            . . . . f f f f . . . . . 
+            . . f f f f f f f f . . . 
+            . f f f f f f c f f f . . 
+            f f f f f f c c f f f c . 
+            f f f c f f f f f f f c . 
+            c c c f f f e e f f c c . 
+            f f f f f e e f f c c f . 
+            f f f b f e e f b f f f . 
+            . f 4 1 f 4 4 f 1 4 f . . 
+            . f e 4 4 4 4 4 4 e f . . 
+            . f f f e e e e f f f . . 
+            f e f b 7 7 7 7 b f e f . 
+            e 4 f 7 7 7 7 7 7 f 4 e . 
+            e e f 6 6 6 6 6 6 f e e . 
+            . . . f f f f f f . . . . 
+            . . . f f . . f f . . . . 
+            `, SpriteKind.Player)
+        mySprite.setScale(4, ScaleAnchor.Middle)
+        mySprite.setPosition(78, 56)
+        for (let index = 0; index < 2; index++) {
+            music.play(music.melodyPlayable(music.siren), music.PlaybackMode.UntilDone)
+        }
     }
 })
 let mySprite: Sprite = null
 let msLeft = 0
 let textSprite: TextSprite = null
+let fut = 0
+let teljesIdo = 0
+teljesIdo = 300
+fut = 0
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -143,6 +170,6 @@ scene.setBackgroundImage(img`
     `)
 textSprite = textsprite.create("")
 textSprite.setMaxFontHeight(20)
-textSprite.setPosition(68, 100)
-msLeft = 5000
-textSprite.setText(text.stringify(msLeft).substr(0, 1))
+textSprite.setPosition(45, 100)
+msLeft = teljesIdo
+textSprite.setText(text.stringify(msLeft))

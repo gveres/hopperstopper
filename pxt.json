@@ -1,0 +1,29 @@
+{
+    "name": "HopperStopper",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "xtronpro-util": "github:tsunyi/pxt-xtronpro-util#f485efc3531b614760d210739b279365cdece641",
+        "xtronpro-rtc": "github:tsunyi/pxt-xtronpro-rtc#v0.2.2",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "Stringify": "github:sargedev/stringify#74e9eee193ec8208a2a12d88e72c218c171a5680"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "2.0.56",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}

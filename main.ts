@@ -1,8 +1,3 @@
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    for (let index = 0; index < 2; index++) {
-        music.play(music.melodyPlayable(music.siren), music.PlaybackMode.UntilDone)
-    }
-})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     msLeft = 5000
     textSprite.setText(text.stringify(msLeft).substr(0, 1))
@@ -14,27 +9,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         msLeft = msLeft - 1000
         textSprite.setText(text.stringify(msLeft).substr(0, 1))
     }
-    mySprite = sprites.create(img`
-        . . . . . f f f f f . . . . . . 
-        . . . . f e e e e e f . . . . . 
-        . . . f d d d d d e e f . . . . 
-        . . f f f d d f f d e f f . . . 
-        . c d d e e d d d d e d d f . . 
-        . c c d d d d c d d e d f f f . 
-        . c d c c c c d d d e d f b d f 
-        . . c d d d d d d e e f f d d f 
-        . . . c d d d d e e f f e f f f 
-        . . . . f f f e e f e e e f . . 
-        . . . . f e e e e e e e f f f . 
-        . . . f e e e e e e f f f e f . 
-        . . f f e e e e f f f f f e f . 
-        . f b d f e e f b b f f f e f . 
-        . f d d f e e f d d b f f f f . 
-        . f f f f f f f f f f f f f . . 
-        `, SpriteKind.Player)
+    mySprite = sprites.create(assets.image`misiTuzolto`, SpriteKind.Player)
     mySprite.setScale(4, ScaleAnchor.Middle)
     mySprite.setPosition(78, 56)
-    music.play(music.melodyPlayable(music.magicWand), music.PlaybackMode.UntilDone)
+    for (let index = 0; index < 2; index++) {
+        music.play(music.melodyPlayable(music.siren), music.PlaybackMode.UntilDone)
+    }
 })
 let mySprite: Sprite = null
 let msLeft = 0
